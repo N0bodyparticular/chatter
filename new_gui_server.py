@@ -28,7 +28,7 @@ def checker():
         sockfd.settimeout(0.1)
         
         
-        alias = sockfd.recv(20)[4:]
+        alias = sockfd.recv(20)[5:]
         sockfd.send(b"Hello, " + alias)
         
 

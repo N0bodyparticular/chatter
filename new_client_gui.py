@@ -1,5 +1,5 @@
 import socket, _thread, easygui, uuid, sys, select
-import pdb, time
+import pdb, time, winsound
 from tkinter import *
 from tkinter import Menu
 from tkinter import ttk
@@ -138,6 +138,7 @@ def recv_loop(*args):
                  print(c, end='')
                  viewtxt.insert(END, "\n" + c)# + '\n')
                  viewtxt.see(END)
+                 winsound.MessageBeep(17)
                  window.after(120, recv_loop)
     else:
         print("Waiting for connection")
