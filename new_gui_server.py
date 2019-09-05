@@ -78,16 +78,17 @@ def MainLoop():
 
             print("Broadcasting Message: " + str(hasMessage[1]))
             logtxt.insert(INSERT, "Broadcasting Message: " + str(hasMessage[1]) + "\n")
+            logtxt.see(END)
 
             for conn in connections:
                 if conn[2] != hasMessage[0]:
                     # The user alias is different.
                     try:
-                        conn[0].send(hasMessage[0] + b" said: " + hasMessage[1])
+                        conn[0].send(hasMessage[0] + b" said:" + hasMessage[1])
                     except:
                         connections.remove(conn)
                 else:
-                    conn[0].send(b"You:" + hasMessage[1])
+                    conn[0].send(b"You: " + hasMessage[1])
 
             hasMessage = [None, None]
 
